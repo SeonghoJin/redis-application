@@ -17,3 +17,5 @@ export const client = createClient({
         port: Number(process.env.PORT) || -1
     }
 });
+
+await client.connect();
