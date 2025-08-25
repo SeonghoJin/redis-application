@@ -1,22 +1,8 @@
 import { createClient } from 'redis';
 import * as dotenv from 'dotenv';
 import readline from 'readline';
+import { client, rl } from '../common/index.js';
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
-dotenv.config();
-
-const client = createClient({
-    username: 'default',
-    password: process.env.PASSWORD,
-    socket: {
-        host: process.env.HOST,
-        port: Number(process.env.PORT) || -1
-    }
-});
 
 client.on('error', (err: any) => console.log('Redis Client Error', err));
 
